@@ -12,7 +12,7 @@ using tourism.Data;
 namespace tourism.Migrations
 {
     [DbContext(typeof(TourismDBContext.TourismDbContext))]
-    [Migration("20230731104437_init")]
+    [Migration("20230731113801_init")]
     partial class init
     {
         /// <inheritdoc />
@@ -66,7 +66,7 @@ namespace tourism.Migrations
                     b.ToTable("Packages");
                 });
 
-            modelBuilder.Entity("tourism.Models.Register", b =>
+            modelBuilder.Entity("tourism.Models.User", b =>
                 {
                     b.Property<int?>("Id")
                         .ValueGeneratedOnAdd()
@@ -74,15 +74,21 @@ namespace tourism.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int?>("Id"));
 
+                    b.Property<string>("Name")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("email")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("password")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<string>("role")
+                        .HasColumnType("nvarchar(max)");
+
                     b.HasKey("Id");
 
-                    b.ToTable("Registers");
+                    b.ToTable("User");
                 });
 
             modelBuilder.Entity("tourism.Models.Userdetail", b =>

@@ -1,4 +1,6 @@
 using Microsoft.EntityFrameworkCore;
+using tourism.Repository.Interfaces;
+using tourism.Repository.Services;
 using static tourism.Data.TourismDBContext;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -9,7 +11,7 @@ builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
-
+builder.Services.AddScoped<IUser,UserService>();
 
 builder.Services.AddDbContext<TourismDbContext>(optionsAction: options => options.UseSqlServer(builder.Configuration.GetConnectionString(name: "AdminSkill")));
 

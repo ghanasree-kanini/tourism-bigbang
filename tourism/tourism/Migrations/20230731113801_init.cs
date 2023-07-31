@@ -41,17 +41,19 @@ namespace tourism.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "Registers",
+                name: "User",
                 columns: table => new
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
+                    Name = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     email = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    role = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     password = table.Column<string>(type: "nvarchar(max)", nullable: true)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Registers", x => x.Id);
+                    table.PrimaryKey("PK_User", x => x.Id);
                 });
 
             migrationBuilder.CreateTable(
@@ -86,7 +88,7 @@ namespace tourism.Migrations
                 name: "Packages");
 
             migrationBuilder.DropTable(
-                name: "Registers");
+                name: "User");
 
             migrationBuilder.DropTable(
                 name: "Userdetails");

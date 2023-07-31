@@ -8,13 +8,11 @@ namespace tourism.Data
         public class TourismDbContext : DbContext
         {
             public TourismDbContext(DbContextOptions<TourismDbContext> options) : base(options) { }
-            public DbSet<Register> Registers { get; set; }
-
             public DbSet<Userdetail> Userdetails { get; set; }
 
             public DbSet<Package> Packages { get; set; }
             public DbSet<Feedback> Feedbacks { get; set; }
-                        
+            public DbSet<User> User { get; set; }
         }
 
     }
