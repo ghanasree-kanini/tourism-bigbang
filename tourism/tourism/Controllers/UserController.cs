@@ -85,7 +85,7 @@ namespace tourism.Controllers
             {
                 Subject = new ClaimsIdentity(new[]
                 {
-                new Claim(ClaimTypes.NameIdentifier, user.Id.ToString()),
+                new Claim(ClaimTypes.NameIdentifier, user.UserId.ToString()),
                 new Claim(ClaimTypes.Name, user.Name),
                 //new Claim(ClaimTypes.Role, user.Role),
                 new Claim(ClaimTypes.Email, user.email),

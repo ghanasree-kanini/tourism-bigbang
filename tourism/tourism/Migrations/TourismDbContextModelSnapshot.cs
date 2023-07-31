@@ -24,14 +24,17 @@ namespace tourism.Migrations
 
             modelBuilder.Entity("tourism.Models.Feedback", b =>
                 {
-                    b.Property<int>("ID")
+                    b.Property<int>("FeedbackID")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("ID"));
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("FeedbackID"));
 
                     b.Property<string>("Name")
                         .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("UserId")
+                        .HasColumnType("int");
 
                     b.Property<string>("feedback")
                         .HasColumnType("nvarchar(max)");
@@ -39,18 +42,20 @@ namespace tourism.Migrations
                     b.Property<string>("rating")
                         .HasColumnType("nvarchar(max)");
 
-                    b.HasKey("ID");
+                    b.HasKey("FeedbackID");
+
+                    b.HasIndex("UserId");
 
                     b.ToTable("Feedbacks");
                 });
 
             modelBuilder.Entity("tourism.Models.Package", b =>
                 {
-                    b.Property<int>("Id")
+                    b.Property<int>("PackageId")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("PackageId"));
 
                     b.Property<string>("Destination")
                         .HasColumnType("nvarchar(max)");
@@ -58,18 +63,26 @@ namespace tourism.Migrations
                     b.Property<string>("Duration")
                         .HasColumnType("nvarchar(max)");
 
-                    b.HasKey("Id");
+                    b.Property<string>("Packageimg")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("UserId")
+                        .HasColumnType("int");
+
+                    b.HasKey("PackageId");
+
+                    b.HasIndex("UserId");
 
                     b.ToTable("Packages");
                 });
 
             modelBuilder.Entity("tourism.Models.User", b =>
                 {
-                    b.Property<int?>("Id")
+                    b.Property<int?>("UserId")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int?>("Id"));
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int?>("UserId"));
 
                     b.Property<string>("Name")
                         .HasColumnType("nvarchar(max)");
@@ -83,18 +96,18 @@ namespace tourism.Migrations
                     b.Property<string>("role")
                         .HasColumnType("nvarchar(max)");
 
-                    b.HasKey("Id");
+                    b.HasKey("UserId");
 
                     b.ToTable("User");
                 });
 
             modelBuilder.Entity("tourism.Models.Userdetail", b =>
                 {
-                    b.Property<int>("Id")
+                    b.Property<int>("UserdetailId")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("UserdetailId"));
 
                     b.Property<string>("City_of_residence")
                         .HasColumnType("nvarchar(max)");
@@ -111,6 +124,9 @@ namespace tourism.Migrations
                     b.Property<string>("Travel_destination")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<int>("UserId")
+                        .HasColumnType("int");
+
                     b.Property<DateTime?>("date_of_travel")
                         .HasColumnType("datetime2");
 
@@ -123,9 +139,53 @@ namespace tourism.Migrations
                     b.Property<int?>("vacay_type")
                         .HasColumnType("int");
 
-                    b.HasKey("Id");
+                    b.HasKey("UserdetailId");
+
+                    b.HasIndex("UserId");
 
                     b.ToTable("Userdetails");
+                });
+
+            modelBuilder.Entity("tourism.Models.Feedback", b =>
+                {
+                    b.HasOne("tourism.Models.User", "User")
+                        .WithMany("Feedbacks")
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("User");
+                });
+
+            modelBuilder.Entity("tourism.Models.Package", b =>
+                {
+                    b.HasOne("tourism.Models.User", "User")
+                        .WithMany("Packages")
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("User");
+                });
+
+            modelBuilder.Entity("tourism.Models.Userdetail", b =>
+                {
+                    b.HasOne("tourism.Models.User", "User")
+                        .WithMany("Userdetails")
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("User");
+                });
+
+            modelBuilder.Entity("tourism.Models.User", b =>
+                {
+                    b.Navigation("Feedbacks");
+
+                    b.Navigation("Packages");
+
+                    b.Navigation("Userdetails");
                 });
 #pragma warning restore 612, 618
         }

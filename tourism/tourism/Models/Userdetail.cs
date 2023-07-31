@@ -6,10 +6,9 @@ namespace tourism.Models
     public class Userdetail
     {
         [Key]
-        public int Id { get; set; }
+        public int UserdetailId { get; set; }
         public string? Name { get; set; }
         public string? Email { get; set; }
-
         public string? Phonenumber { get; set; }
         public string? City_of_residence { get; set;}
 
@@ -19,8 +18,11 @@ namespace tourism.Models
         public int?number_of_children { get; set; }
         public int?vacay_type { get; set; }
 
-        
-     
+        public int UserId { get; set; }
+        public User? User { get; set; }
+
+
+
 
     }
 }
