@@ -1,0 +1,36 @@
+register>>
+id
+name
+email
+role
+password
+
+userdetails>>
+name
+email
+phonenumber
+city of residence
+travel destination
+date of travel
+no of adult
+no of children
+vaction type
+
+packages>>
+duration
+destination
+no of people
+
+feedback>>
+userid
+username
+rating
+feedback
+
+
+
+
+
+
+
+
