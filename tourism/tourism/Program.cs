@@ -12,6 +12,7 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 builder.Services.AddScoped<IUser,UserService>();
+builder.Services.AddScoped<IUserdetail, UserdetailService>();
 
 builder.Services.AddDbContext<TourismDbContext>(optionsAction: options => options.UseSqlServer(builder.Configuration.GetConnectionString(name: "AdminSkill")));
 

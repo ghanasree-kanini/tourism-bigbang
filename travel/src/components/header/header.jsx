@@ -1,5 +1,6 @@
 import React, {useState} from 'react';
 import '../header/header.css';
+import logo3 from '../../images/logo3.jpg';
  
 function Header() {
     const[active, setActive] = useState("nav__menu");
@@ -19,6 +20,7 @@ function Header() {
 
     return (
         <nav className="nav">
+          <img src={logo3} style={{width:70}}/>
           <a href="#" className="nav__brand">herdoy</a> 
            <ul className={active}>
             <li className="nav__item"><a href="#" className="nav__link">Home</a></li>

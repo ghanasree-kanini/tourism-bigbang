@@ -10,6 +10,8 @@ body{
 }
 li{
     list-style:none;
+    margin-right: 10px;
+    transition : transform 0.2s ease;
 }
 a{
     text-decoration: none;
@@ -20,8 +22,8 @@ a{
     display: flex;
     align-items: center;
     justify-content: space-around;
-    height:8vh;
-    background:rgb(0,28,73);
+    height:20vh;
+    background:rgb(112, 204, 231);
 }
 .nav__brand{
     text-transform: uppercase;

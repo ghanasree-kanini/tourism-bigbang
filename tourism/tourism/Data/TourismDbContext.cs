@@ -5,6 +5,8 @@ namespace tourism.Data
 {
     public class TourismDBContext
     {
+        public object Userdetails { get; internal set; }
+
         public class TourismDbContext : DbContext
         {
             public TourismDbContext(DbContextOptions<TourismDbContext> options) : base(options) { }

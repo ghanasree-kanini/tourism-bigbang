@@ -13,8 +13,8 @@ function App() {
       {/* <Login /> */}
       {/* <RegisterPage /> */}
       {/* <Header /> */}
-      {/* <Homepage /> */}
-      <Booking />
+      <Homepage />
+      {/* <Booking /> */}
     </div>
 
   );
