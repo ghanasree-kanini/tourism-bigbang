@@ -5,9 +5,6 @@
 html{
     font-size:62.5%;
 }
-body{
-    font-size :1.6rem
-}
 li{
     list-style:none;
     margin-right: 10px;
@@ -15,7 +12,8 @@ li{
 }
 a{
     text-decoration: none;
-    color:darkgray;
+    color:rgb(9, 120, 134);
+    font-size:2rem;
 }
 
 .nav{
@@ -24,6 +22,7 @@ a{
     justify-content: space-around;
     height:20vh;
     background:rgb(112, 204, 231);
+    
 }
 .nav__brand{
     text-transform: uppercase;
@@ -39,8 +38,9 @@ a{
     width: 2.5rem;
     height:0.2rem;
     margin:0.4rem;
-    background:darkgray;
-    transition: 0.4s ease-in;
+    background:rgb(9, 120, 134);
+    
+    
 
 }
 .nav__toggler{
@@ -78,3 +78,18 @@ a{
     transform: rotate(-45deg) translate(-4px, -5px);
 
 }
+.nav__item {
+    /* Set the display property to inline-block to make the menu items appear in a line */
+    display: inline-block;
+    margin-right: 20px;
+    font-size: 1rem;
+    font-weight:bold;
+  }
+  .nav__link#packages-menu-button {
+    font-size: 2rem; /* Set the desired font size for the PACKAGES button */
+    font-weight: bold; /* Add bold style to the text */
+    color:rgb(9, 120, 134);
+    position: relative;
+    z-index: 1; /* Set the text color to white */
+  }
+  

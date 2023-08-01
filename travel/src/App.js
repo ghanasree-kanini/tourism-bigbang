@@ -6,15 +6,17 @@ import Header from './components/header/header';
 import Homepage from './components/homepage/homepage';
 import Login from './components/login/login';
 import RegisterPage from './components/register/register'
+import Feedback from './components/feedback/feedback';
 
 function App() {
   return (
     <div>
-      {/* <Login /> */}
-      {/* <RegisterPage /> */}
-      {/* <Header /> */}
+      {/* <Login /> 
+       <RegisterPage /> 
+       <Header />  */}
       <Homepage />
-      {/* <Booking /> */}
+      {/* <Booking />
+      < Feedback /> */}
     </div>
 
   );
