@@ -34,7 +34,7 @@ const RegisterPage = () => {
 
     try {
       // Make a POST request to the registration endpoint
-      const response = await axios.post('https://localhost:7228/api/Users/register', formData);
+      const response = await axios.post('https://localhost:7222/api/User/register', formData);
 
       const token = response.data;
 
@@ -105,7 +105,7 @@ const RegisterPage = () => {
           <Button type="submit" variant="contained" color="primary" fullWidth>
             Register
           </Button>
-          {/* <small>Already have an account? <Link to="/login">Login Here</Link></small> */}
+          <small>Already have an account?</small> <Link to="/login">Login Here</Link>
         </form>
       </div>
     </Container>

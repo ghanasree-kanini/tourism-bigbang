@@ -13,8 +13,19 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 builder.Services.AddScoped<IUser,UserService>();
 builder.Services.AddScoped<IUserdetail, UserdetailService>();
+builder.Services.AddScoped<IFeedback, FeedbackService>();
 
 builder.Services.AddDbContext<TourismDbContext>(optionsAction: options => options.UseSqlServer(builder.Configuration.GetConnectionString(name: "AdminSkill")));
+
+builder.Services.AddCors(opts =>
+{
+    opts.AddPolicy("AngularCORS", options =>
+    {
+        options.AllowAnyHeader().AllowAnyMethod().AllowAnyOrigin();
+    });
+});
+
+
 
 
 var app = builder.Build();
@@ -25,6 +36,9 @@ if (app.Environment.IsDevelopment())
     app.UseSwagger();
     app.UseSwaggerUI();
 }
+
+
+app.UseCors("AngularCORS");
 
 app.UseHttpsRedirection();
 

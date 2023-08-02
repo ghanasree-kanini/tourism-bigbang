@@ -1,25 +1,30 @@
- 
-import './App.css';
-import Booking from './components/booking/booking';
-import booking from './components/booking/booking';
-import Header from './components/header/header';
-import Homepage from './components/homepage/homepage';
+import React from 'react';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import RegisterPage from './components/register/register';
 import Login from './components/login/login';
-import RegisterPage from './components/register/register'
+import Homepage from './components/homepage/homepage';
+import Header from './components/header/header';
 import Feedback from './components/feedback/feedback';
+import Booking from './components/booking/booking';
 
 function App() {
   return (
     <div>
-      {/* <Login /> 
-       <RegisterPage /> 
-       <Header />  */}
-      <Homepage />
-      {/* <Booking />
-      < Feedback /> */}
-    </div>
+      {/* <BrowserRouter>
+        <Routes>
+          <Route path='/login' element={<Login />} />
+          <Route path='/register' element={<RegisterPage />} />
+          <Route path='/homepage' element={<Homepage />} />
+          <Route path="/feedback" element={<Feedback />} />
+          <Route path="/booking" element={<Booking />} />
+          <Route path="/header" element={<Header />} />
+        </Routes>
+      </BrowserRouter> */}
 
+      < Feedback />
+    </div>
   );
 }
 
 export default App;
+

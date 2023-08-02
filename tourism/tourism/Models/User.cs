@@ -11,9 +11,7 @@ namespace tourism.Models
         public string? email { get; set; }
         public string? role { get; set; }
         public string? password { get; set; }
-        public ICollection<Userdetail> Userdetails { get; set; }
-        public ICollection<Package> Packages { get; set; }  
-        public ICollection<Feedback> Feedbacks { get; set; }
+        
 
 
     }

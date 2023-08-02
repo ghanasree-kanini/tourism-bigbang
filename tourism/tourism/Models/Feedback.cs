@@ -10,7 +10,5 @@ namespace tourism.Models
         public string? rating { get; set; }
         public string? feedback { get; set; }
 
-        public int UserId { get; set; }
-        public User? User { get; set; }
     }
 }

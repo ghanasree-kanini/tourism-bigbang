@@ -16,12 +16,7 @@ namespace tourism.Models
         public DateTime? date_of_travel { get; set; }
         public int? number_of_adult { get; set; }
         public int?number_of_children { get; set; }
-        public int?vacay_type { get; set; }
-
-        public int UserId { get; set; }
-        public User? User { get; set; }
-
-
+        public string?vacay_type { get; set; }
 
 
     }

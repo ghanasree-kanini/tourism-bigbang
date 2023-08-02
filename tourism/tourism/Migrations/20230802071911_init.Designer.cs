@@ -12,7 +12,7 @@ using tourism.Data;
 namespace tourism.Migrations
 {
     [DbContext(typeof(TourismDBContext.TourismDbContext))]
-    [Migration("20230731122558_init")]
+    [Migration("20230802071911_init")]
     partial class init
     {
         /// <inheritdoc />
@@ -36,9 +36,6 @@ namespace tourism.Migrations
                     b.Property<string>("Name")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("UserId")
-                        .HasColumnType("int");
-
                     b.Property<string>("feedback")
                         .HasColumnType("nvarchar(max)");
 
@@ -46,8 +43,6 @@ namespace tourism.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("FeedbackID");
-
-                    b.HasIndex("UserId");
 
                     b.ToTable("Feedbacks");
                 });
@@ -69,12 +64,7 @@ namespace tourism.Migrations
                     b.Property<string>("Packageimg")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("UserId")
-                        .HasColumnType("int");
-
                     b.HasKey("PackageId");
-
-                    b.HasIndex("UserId");
 
                     b.ToTable("Packages");
                 });
@@ -127,9 +117,6 @@ namespace tourism.Migrations
                     b.Property<string>("Travel_destination")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("UserId")
-                        .HasColumnType("int");
-
                     b.Property<DateTime?>("date_of_travel")
                         .HasColumnType("datetime2");
 
@@ -139,56 +126,12 @@ namespace tourism.Migrations
                     b.Property<int?>("number_of_children")
                         .HasColumnType("int");
 
-                    b.Property<int?>("vacay_type")
-                        .HasColumnType("int");
+                    b.Property<string>("vacay_type")
+                        .HasColumnType("nvarchar(max)");
 
                     b.HasKey("UserdetailId");
 
-                    b.HasIndex("UserId");
-
                     b.ToTable("Userdetails");
-                });
-
-            modelBuilder.Entity("tourism.Models.Feedback", b =>
-                {
-                    b.HasOne("tourism.Models.User", "User")
-                        .WithMany("Feedbacks")
-                        .HasForeignKey("UserId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("User");
-                });
-
-            modelBuilder.Entity("tourism.Models.Package", b =>
-                {
-                    b.HasOne("tourism.Models.User", "User")
-                        .WithMany("Packages")
-                        .HasForeignKey("UserId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("User");
-                });
-
-            modelBuilder.Entity("tourism.Models.Userdetail", b =>
-                {
-                    b.HasOne("tourism.Models.User", "User")
-                        .WithMany("Userdetails")
-                        .HasForeignKey("UserId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("User");
-                });
-
-            modelBuilder.Entity("tourism.Models.User", b =>
-                {
-                    b.Navigation("Feedbacks");
-
-                    b.Navigation("Packages");
-
-                    b.Navigation("Userdetails");
                 });
 #pragma warning restore 612, 618
         }
