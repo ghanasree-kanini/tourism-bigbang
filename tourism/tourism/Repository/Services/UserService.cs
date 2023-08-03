@@ -37,10 +37,10 @@ namespace tourism.Repository.Services
             return users;
         }
 
-        public async Task<User> GetUserByEmail(string email)
+        public async Task<User> GetUserByEmail(string Email)
         {
             // Implement the logic to get the user by email from the database
-            return await _context.User.FirstOrDefaultAsync(u => u.email == email);
+            return await _context.User.FirstOrDefaultAsync(u => u.Email == Email);
         }
 
         private string Encrypt(string password)

@@ -6,6 +6,8 @@ import Homepage from './components/homepage/homepage';
 import Header from './components/header/header';
 import Feedback from './components/feedback/feedback';
 import Booking from './components/booking/booking';
+import Package from './components/packages/packages';
+import Packagesget from './components/packagesget/packagesget';
 
 function App() {
   return (
@@ -21,7 +23,9 @@ function App() {
         </Routes>
       </BrowserRouter> */}
 
-      < Feedback />
+      {/* < Feedback /> */}
+      {/* < Package /> */}
+      <Packagesget />
     </div>
   );
 }

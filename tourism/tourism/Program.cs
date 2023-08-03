@@ -14,6 +14,7 @@ builder.Services.AddSwaggerGen();
 builder.Services.AddScoped<IUser,UserService>();
 builder.Services.AddScoped<IUserdetail, UserdetailService>();
 builder.Services.AddScoped<IFeedback, FeedbackService>();
+builder.Services.AddScoped<IPackage, PackageService>();
 
 builder.Services.AddDbContext<TourismDbContext>(optionsAction: options => options.UseSqlServer(builder.Configuration.GetConnectionString(name: "AdminSkill")));
 
@@ -39,6 +40,8 @@ if (app.Environment.IsDevelopment())
 
 
 app.UseCors("AngularCORS");
+
+app.UseStaticFiles();
 
 app.UseHttpsRedirection();
 

@@ -32,7 +32,7 @@ namespace tourism.Controllers
             }
 
             // Encrypt the password before storing it
-            user.password = Encrypt(user.password);
+            user.Password = Encrypt(user.Password);
 
             var createdUser = await _userRepository.AddUser(user);
 
@@ -52,7 +52,7 @@ namespace tourism.Controllers
             }
 
             // Find the user by their email
-            var existingUser = await _userRepository.GetUserByEmail(loginModel.email);
+            var existingUser = await _userRepository.GetUserByEmail(loginModel.Email);
 
             if (existingUser == null)
             {
@@ -60,8 +60,8 @@ namespace tourism.Controllers
             }
 
             // Decrypt the stored password and compare it with the provided password
-            var decryptedPassword = Decrypt(existingUser.password);
-            if (loginModel.password != decryptedPassword)
+            var decryptedPassword = Decrypt(existingUser.Password);
+            if (loginModel.Password != decryptedPassword)
             {
                 return Unauthorized("Invalid credentials");
             }
@@ -88,7 +88,7 @@ namespace tourism.Controllers
                 new Claim(ClaimTypes.NameIdentifier, user.UserId.ToString()),
                 new Claim(ClaimTypes.Name, user.Name),
                 //new Claim(ClaimTypes.Role, user.Role),
-                new Claim(ClaimTypes.Email, user.email),
+                new Claim(ClaimTypes.Email, user.Email),
              }),
                 Expires = DateTime.UtcNow.AddDays(1), // Token expiration time (you can adjust it as needed)
                 SigningCredentials = credentials

@@ -1,11 +1,37 @@
 {
   "Version": 1,
-  "Hash": "leZEz3N1VIXodjByy2FzyiOO/zEDimIw6lTSg/fswVI=",
+  "Hash": "xgG6gLuZf7QDswTOI20n/W7X+au2f3epfpZQLyCk8H0=",
   "Source": "tourism",
   "BasePath": "_content/tourism",
   "Mode": "Default",
   "ManifestType": "Build",
   "ReferencedProjectsConfiguration": [],
-  "DiscoveryPatterns": [],
-  "Assets": []
+  "DiscoveryPatterns": [
+    {
+      "Name": "tourism\\wwwroot",
+      "Source": "tourism",
+      "ContentRoot": "D:\\Kanini\\tourism-bigbang\\tourism\\tourism\\wwwroot\\",
+      "BasePath": "_content/tourism",
+      "Pattern": "**"
+    }
+  ],
+  "Assets": [
+    {
+      "Identity": "D:\\Kanini\\tourism-bigbang\\tourism\\tourism\\wwwroot\\Packages\\95b185e9-9624-4052-acee-c4fc7fbea0ed.jpg",
+      "SourceId": "tourism",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\Kanini\\tourism-bigbang\\tourism\\tourism\\wwwroot\\",
+      "BasePath": "_content/tourism",
+      "RelativePath": "Packages/95b185e9-9624-4052-acee-c4fc7fbea0ed.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\Packages\\95b185e9-9624-4052-acee-c4fc7fbea0ed.jpg"
+    }
+  ]
 }

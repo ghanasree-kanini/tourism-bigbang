@@ -1,0 +1,25 @@
+{
+  "Files": [
+    {
+      "Id": "D:\\Kanini\\tourism-bigbang\\tourism\\tourism\\wwwroot\\Packages\\95b185e9-9624-4052-acee-c4fc7fbea0ed.jpg",
+      "PackagePath": "staticwebassets\\Packages\\95b185e9-9624-4052-acee-c4fc7fbea0ed.jpg"
+    },
+    {
+      "Id": "obj\\Debug\\net7.0\\staticwebassets\\msbuild.build.tourism.props",
+      "PackagePath": "build\\tourism.props"
+    },
+    {
+      "Id": "obj\\Debug\\net7.0\\staticwebassets\\msbuild.buildMultiTargeting.tourism.props",
+      "PackagePath": "buildMultiTargeting\\tourism.props"
+    },
+    {
+      "Id": "obj\\Debug\\net7.0\\staticwebassets\\msbuild.buildTransitive.tourism.props",
+      "PackagePath": "buildTransitive\\tourism.props"
+    },
+    {
+      "Id": "obj\\Debug\\net7.0\\staticwebassets\\msbuild.tourism.Microsoft.AspNetCore.StaticWebAssets.props",
+      "PackagePath": "build\\Microsoft.AspNetCore.StaticWebAssets.props"
+    }
+  ],
+  "ElementsToRemove": []
+}

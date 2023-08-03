@@ -75,3 +75,4 @@ D:\Kanini\tourism-bigbang\tourism\tourism\obj\Debug\net7.0\refint\tourism.dll
 D:\Kanini\tourism-bigbang\tourism\tourism\obj\Debug\net7.0\tourism.pdb
 D:\Kanini\tourism-bigbang\tourism\tourism\obj\Debug\net7.0\tourism.genruntimeconfig.cache
 D:\Kanini\tourism-bigbang\tourism\tourism\obj\Debug\net7.0\ref\tourism.dll
+D:\Kanini\tourism-bigbang\tourism\tourism\bin\Debug\net7.0\tourism.staticwebassets.runtime.json

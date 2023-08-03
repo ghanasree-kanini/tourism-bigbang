@@ -15,6 +15,7 @@ namespace tourism.Data
             public DbSet<Package> Packages { get; set; }
             public DbSet<Feedback> Feedbacks { get; set; }
             public DbSet<User> User { get; set; }
+            public object TourPackages { get; internal set; }
         }
 
     }
