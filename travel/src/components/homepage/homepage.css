@@ -11,17 +11,18 @@
   
   .carousel-text {
     position: absolute;
-    top: 50%;
+    top: 65%;
     left: 50%;
     transform: translate(-50%, -50%);
     text-align: center;
-    color: white;
+    color:rgba(223, 223, 226, 0.7);
     font-size: 24px;
     font-weight: bold;
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
     background-color: rgba(162, 162, 219,0.7);
     border-radius: 5px;
     padding: 20px;
+    font-family: cursive;
    
     /* Adjust the styles as needed for the centered text */
   }
@@ -31,8 +32,8 @@
 
 /* Style for the surf-button */
 .surf-button {
-  background-color: #3cd6c2;
-  color: white;
+  background-color: #87bec0;
+  color:rgba(223, 223, 226, 0.7);
   border: none;
   padding: 10px 20px;
   text-align: center;

@@ -24,7 +24,7 @@ namespace tourism.Controllers
         }
 
         [HttpPost("register")]
-        public async Task<ActionResult<string>> Register(User user)
+        public async Task<ActionResult<string>> Register(User users)
         {
             if (_userRepository == null)
             {
@@ -32,15 +32,30 @@ namespace tourism.Controllers
             }
 
             // Encrypt the password before storing it
-            user.Password = Encrypt(user.Password);
+            users.Password = Encrypt(users.Password);
 
-            var createdUser = await _userRepository.AddUser(user);
+            // Set IsActive status based on the role
+            if (users.Role == "Agent" || users.Role == "agent")
+            {
+                users.IsActive = false; // Pending approval for Agents
+                var createdUser = await _userRepository.AddUser(users);
 
-            // Generate JWT token with user details
-            var token = GenerateJwtToken(createdUser);
+                // Return the token as part of the response
+                return Ok("Wait untill Approval");
+            }
+            else
+            {
+                users.IsActive = true; // Active for other roles 
+                var createdUser = await _userRepository.AddUser(users);
 
-            // Return the token as part of the response
-            return Ok(token);
+                // Generate JWT token with user details
+                var token = GenerateJwtToken(createdUser);
+
+                // Return the token  
+                return Ok(token);
+            }
+
+
         }
 
         [HttpPost("login")]
@@ -73,6 +88,66 @@ namespace tourism.Controllers
             return Ok(token);
         }
 
+        [HttpPost("approve/{userId}")]
+        public async Task<ActionResult> ApproveAgent(int userId)
+        {
+            if (_userRepository == null)
+            {
+                return Problem("User repository is null.");
+            }
+
+            var agent = await _userRepository.GetUserById(userId);
+
+            if (agent == null)
+            {
+                return NotFound("Agent not found.");
+            }
+
+            if (agent.Role != "Agent")
+            {
+                return BadRequest("The user is not an agent.");
+            }
+
+            agent.IsActive = true;
+
+            await _userRepository.UpdateUser(agent);
+
+            return Ok("Agent approved successfully.");
+        }
+
+        [HttpPost("reject/{userId}")]
+        public async Task<ActionResult> RejectUser(int userId)
+        {
+            if (_userRepository == null)
+            {
+                return Problem("User repository is null.");
+            }
+
+            var user = await _userRepository.GetUserById(userId);
+
+            if (user == null)
+            {
+                return NotFound("User not found.");
+            }
+
+            await _userRepository.DeleteUser(user); // Delete the user from the database
+
+            return Ok("User rejected successfully.");
+        }
+
+        [HttpGet("pending")]
+        public async Task<ActionResult<IEnumerable<User>>> GetPendingUsers()
+        {
+            if (_userRepository == null)
+            {
+                return Problem("User repository is null.");
+            }
+
+            var pendingUsers = await _userRepository.GetPendingUsers();
+
+            return Ok(pendingUsers);
+        }
+
 
 
         private string GenerateJwtToken(User user)
@@ -87,7 +162,7 @@ namespace tourism.Controllers
                 {
                 new Claim(ClaimTypes.NameIdentifier, user.UserId.ToString()),
                 new Claim(ClaimTypes.Name, user.Name),
-                //new Claim(ClaimTypes.Role, user.Role),
+                new Claim(ClaimTypes.Role, user.Role),
                 new Claim(ClaimTypes.Email, user.Email),
              }),
                 Expires = DateTime.UtcNow.AddDays(1), // Token expiration time (you can adjust it as needed)

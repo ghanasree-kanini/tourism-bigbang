@@ -1,0 +1,35 @@
+.login-container {
+    position: relative;
+    background-position: center;
+    width: 400px;
+    padding-right: 40px;
+    margin: 70px auto; /* Center the container horizontally */
+    padding-top:30px;
+    border: 3px solid rgb(9, 120, 134);
+    border-radius: 10px;
+  }
+  
+  .login-header {
+    text-align: center;
+    margin-bottom: 20px;
+    color: rgb(9, 120, 134);
+    font-family: cursive;
+    font-weight: bold;
+    font-size: 2.5rem;
+  }
+  
+  .login-btn {
+    display: flex;
+    justify-content: center; /* Center the button horizontally */
+    margin-top: 20px; /* Add some space between the button and password fields */
+  }
+  .login-btn button {
+    background-color: rgb(9, 120, 134); /* Set background color to rgb(9, 120, 134) */
+    color: white; /* Set text color to white */
+    font-size: 1.2rem;
+    padding: 12px 24px;
+    font-family: cursive;
+    border-radius: 10px; /* Add curved corners */
+    border: none; /* Remove default button border */
+    cursor: pointer;
+  }

@@ -1,0 +1,113 @@
+.registration-header {
+    text-align: center;
+    margin-bottom: 20px;
+    color: rgb(9, 120, 134);
+    font-family: cursive;
+    font-weight: bold; 
+
+   
+  }
+ 
+  .registration-container {
+    position: relative; 
+    /* background-position: center; */
+    width: 400px;
+    /* padding-right: 40px;
+    margin: 70px 0 0 420px; */
+    padding-top:30px;
+    border: 3px solid rgb(9, 120, 134);
+    border-radius: 10px;
+    
+  }
+
+  
+  .MuiOutlinedInput-notchedOutline {
+    border-color:rgb(9, 120, 134);
+  }
+  
+  .MuiOutlinedInput-focused {
+    box-shadow: 0 0 4px rgb(9, 120, 134);
+  }
+  
+  .MuiButton-containedPrimary {
+    background-color: rgb(9, 120, 134);
+    color: #fff;
+    border-radius: 20px;
+  }
+  
+  .MuiButton-containedPrimary:hover {
+    background-color: rgb(9, 120, 134);
+  }
+  
+  #texfield{
+    width: 300px;
+   
+  }
+  .registration-form{
+ 
+    text-align: center;
+    border-radius: 10px;
+    border-color:rgb(9, 120, 134) ;
+  }
+  .acclog{
+    font-size: 2rem;
+    font-family: cursive;
+    color:rgb(9, 120, 134) ;
+  }
+ 
+
+  
+
+  .flex-container {
+    display: flex;
+    align-items: flex; /* 
+    Align items to the top of the container */
+  }
+  .campus{
+    width: 50%;
+    margin: auto;
+    text-align:center;
+    padding-top: 50px;
+    /* display: flex; */
+  
+  }
+  .campus-col{
+    flex-basis:32%;
+    border-radius:10px;
+    margin-bottom:30px;
+    position:relative;
+    overflow: hidden;
+  }
+  .campus-col img{
+    width:100%;
+  }
+  .layer{
+    background:transparent;
+    height:100%;
+    width:100%;
+    position:absolute;
+    top:0;
+    left:0;
+    transition: 0.5s;
+  }
+  .layer:hover{
+    background:rgba(23, 157, 229,0.7);
+  }
+  .layer h3{
+    width:100%;
+    font-weight:600;
+    color:white;
+   
+    bottom:0;
+    left:50%;
+    transform: translateX(-50%);
+    position:absolute;
+    opacity: 0;
+    transition: 0.5s;
+  }
+  .layer:hover h3{
+    bottom:49%;
+    opacity: 1;
+  }
+ 
+ 

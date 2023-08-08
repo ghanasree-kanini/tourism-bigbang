@@ -6,24 +6,23 @@ using tourism.Models;
 using tourism.Repository.Interfaces;
 using static tourism.Data.TourismDBContext;
 
-namespace tourism.Repository.Services
+namespace Travel.Repository.Services
 {
-    public class UserService : IUser 
+
+    public class UsersServices : IUser
     {
         private readonly TourismDbContext _context;
 
-        public UserService(TourismDbContext context)
+        public UsersServices(TourismDbContext context)
         {
             _context = context;
         }
 
         public async Task<User> AddUser(User user)
         {
-            // No need to re-encrypt the password here since it's already encrypted in the UsersController
-            // user.Password = Encrypt(user.Password);
-
             _context.User.Add(user);
             await _context.SaveChangesAsync();
+
 
             return user;
         }
@@ -31,16 +30,35 @@ namespace tourism.Repository.Services
         public async Task<IEnumerable<User>> GetAllUsers()
         {
             var users = await _context.User.ToListAsync();
-
-            // Note: Uncomment the decryption logic if you want to decrypt the passwords before returning
-
             return users;
         }
 
-        public async Task<User> GetUserByEmail(string Email)
+        public async Task<User> GetUserById(int userId)
         {
-            // Implement the logic to get the user by email from the database
-            return await _context.User.FirstOrDefaultAsync(u => u.Email == Email);
+            return await _context.User.FirstOrDefaultAsync(u => u.UserId == userId);
+        }
+
+        public async Task UpdateUser(User user)
+        {
+            _context.User.Update(user);
+            await _context.SaveChangesAsync();
+        }
+
+        public async Task DeleteUser(User user)
+        {
+            _context.User.Remove(user);
+            await _context.SaveChangesAsync();
+        }
+
+        public async Task<User> GetUserByEmail(string email)
+        {
+            return await _context.User.FirstOrDefaultAsync(u => u.Email == email);
+        }
+
+        public async Task<IEnumerable<User>> GetPendingUsers()
+        {
+            var pendingUsers = await _context.User.Where(u => u.IsActive == false).ToListAsync();
+            return pendingUsers;
         }
 
         private string Encrypt(string password)

@@ -10,7 +10,11 @@ import {
 } from '@mui/material';
 import Rating from '@mui/material/Rating';
 import StarIcon from '@mui/icons-material/Star';
-import './feedback.css'; // Import the CSS file
+import './feedback.css';
+import Header from '../header/header';
+import Stack from '@mui/material/Stack';
+import corouselreg4 from "../../images/corouselreg4.jpg";
+import Footer from '../footer/footer';
 
 const labels = {
   0.5: 'Useless',
@@ -69,23 +73,38 @@ const Feedback = () => {
       }
     }
   };
-  
 
   return (
-    <React.Fragment>
-      <h2>Feedback</h2>
+    <div>
+      <Header />   
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      <Stack
+        direction="row" spacing={2}>
+
+      <div class="campus">
+        <div class="campus-col">
+            <img src={corouselreg4}/>
+            <div class="layer">
+                <h3>Have a look!</h3>
+            </div>
+        </div> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      </div>
+
+
+     
       <form onSubmit={handleSubmit} className="form-container">
-      <TextField
-  type="text"
-  variant="outlined"
-  color="secondary"
-  label="Name"
-  onChange={(e) => setName(e.target.value)}
-  value={name}
-  fullWidth
-  required
-  sx={{ mb: 4 }}
-/>
+      <h2 className="feedback-header">Let us know about your experience</h2>
+        <TextField
+          type="text"
+          variant="outlined"
+          color="secondary"
+          label="Name"
+          onChange={(e) => setName(e.target.value)}
+          value={name}
+          fullWidth
+          required
+          sx={{ mb: 4, color: 'rgb(9, 120, 134)' }} 
+        />
 
         <FormControl fullWidth required variant="outlined" color="secondary" sx={{ mb: 4 }}>
           <InputLabel htmlFor="rating">Rating</InputLabel>
@@ -99,30 +118,25 @@ const Feedback = () => {
               id: 'rating',
             }}
           >
-            <MenuItem value={0.5}>0.5 Star - Useless</MenuItem>
-            <MenuItem value={1}>1 Star - Useless+</MenuItem>
-            <MenuItem value={1.5}>1.5 Stars - Poor</MenuItem>
-            <MenuItem value={2}>2 Stars - Poor+</MenuItem>
-            <MenuItem value={2.5}>2.5 Stars - Ok</MenuItem>
-            <MenuItem value={3}>3 Stars - Ok+</MenuItem>
-            <MenuItem value={3.5}>3.5 Stars - Good</MenuItem>
-            <MenuItem value={4}>4 Stars - Good+</MenuItem>
-            <MenuItem value={4.5}>4.5 Stars - Excellent</MenuItem>
-            <MenuItem value={5}>5 Stars - Excellent+</MenuItem>
+            {Object.keys(labels).map((value) => (
+              <MenuItem key={value} value={parseFloat(value)}>
+                {labels[value]}
+              </MenuItem>
+            ))}
           </Select>
         </FormControl>
 
         <TextField
-  type="text"
-  variant="outlined"
-  color="secondary"
-  label="Experience with Us"
-  onChange={(e) => setFeedback(e.target.value)}
-  value={feedback}
-  fullWidth
-  required
-  sx={{ mb: 4 }}
-/>
+          type="text"
+          variant="outlined"
+          color="secondary"
+          label="Experience with Us"
+          onChange={(e) => setFeedback(e.target.value)}
+          value={feedback}
+          fullWidth
+          required
+          sx={{ mb: 4, color: 'rgb(9, 120, 134)' }} 
+        />
 
         <div className="rating-container">
           <Rating
@@ -142,15 +156,18 @@ const Feedback = () => {
         </div>
 
         {/* Center the Register button */}
-        <div style={{ textAlign: 'center' }}>
-          <Button variant="outlined" color="secondary" type="submit">
-            Register
+        <div  className="feedback-btn"style={{ textAlign: 'center' }}>
+          <Button variant="outlined"  type="submit">
+           Submit
           </Button>
         </div>
       </form>
-    </React.Fragment>
+      </Stack>
+      &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;
+      <Footer />
+    </div>
+ 
   );
 };
 
 export default Feedback;
-

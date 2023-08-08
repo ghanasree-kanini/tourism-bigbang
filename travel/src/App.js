@@ -8,25 +8,43 @@ import Feedback from './components/feedback/feedback';
 import Booking from './components/booking/booking';
 import Package from './components/packages/packages';
 import Packagesget from './components/packagesget/packagesget';
+import Admin from './components/Admin/admin';
+import Navbar from './components/navbar/navbar';
+
+import { Switch } from '@mui/material';
+import Gallery from './components/gallery/gallery';
 
 function App() {
   return (
     <div>
-      {/* <BrowserRouter>
+      <BrowserRouter>
         <Routes>
-          <Route path='/login' element={<Login />} />
+          {/* <Route path='/' element={<Homepage />} />
           <Route path='/register' element={<RegisterPage />} />
           <Route path='/homepage' element={<Homepage />} />
           <Route path="/feedback" element={<Feedback />} />
           <Route path="/booking" element={<Booking />} />
-          <Route path="/header" element={<Header />} />
+          <Route path="/header" element={<Header />} /> */}
+          <Route path='/' element={<Homepage />} />
+          <Route path="/login" element={<Login />} />
+          <Route path="/register" element={<RegisterPage />} />
+          <Route path="/feedback" element={<Feedback /> } />
+          <Route path="/gallery" element={<Gallery /> } />
+          <Route path="/booking" element={<Booking />} />
+      
         </Routes>
-      </BrowserRouter> */}
+      </BrowserRouter>
 
       {/* < Feedback /> */}
       {/* < Package /> */}
-      <Packagesget />
-    </div>
+      {/* <Packagesget /> */}
+      {/* <RegisterPage />
+      <Login /> */}
+      {/* < Admin /> */}
+      {/* < Navbar /> */}
+    
+   
+     </div> 
   );
 }
 

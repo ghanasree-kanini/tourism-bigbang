@@ -1,10 +1,9 @@
-/* feedback.css */
 .form-container {
     max-width: 400px;
     margin: 0 auto;
     padding: 20px;
-    border: 1px solid #ccc;
-    border-radius: 8px;
+    border: 3px solid rgb(9, 120, 134);
+    border-radius: 10px;
     background-color: #fff;
   }
   
@@ -18,4 +17,29 @@
   .rating-label {
     margin-left: 10px;
   }
-  
+  .feedback-header{
+    text-align: center;
+    margin-bottom: 20px;
+    color: rgb(9, 120, 134);
+    font-family: cursive;
+    font-weight: bold;
+    font-size: 2.5rem;
+    padding-top: 20px;
+
+  }
+    
+  .feedback-btn {
+    display: flex;
+    justify-content: center; /* Center the button horizontally */
+    margin-top: 20px; /* Add some space between the button and password fields */
+  }
+  .feedback-btn button {
+    background-color: rgb(9, 120, 134); 
+    color: white; /* Set text color to white */
+    font-size: 1.2rem;
+    padding: 12px 24px;
+    font-family: cursive;
+    border-radius: 10px; /* Add curved corners */
+    border: none; /* Remove default button border */
+    cursor: pointer;
+  }

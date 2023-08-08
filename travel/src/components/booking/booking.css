@@ -1,0 +1,15 @@
+.booking-container {
+    position: relative;
+    background-position: center;
+    width: 400px;
+    padding-right: 40px;
+    margin: 70px auto; /* Center the container horizontally */
+    padding-top:30px;
+    border: 3px solid rgb(9, 120, 134);
+    border-radius: 10px;
+  }
+  .booking-header{
+    text-align: center;
+    font-size: 2rem;
+    font-family: cursive;
+  }
